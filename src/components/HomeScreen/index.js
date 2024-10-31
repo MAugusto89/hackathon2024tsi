@@ -1,16 +1,9 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 function  HomeScreen() {
   return (
-    <div>
-      <div className='cardDenuncia'>
-
-      </div>
-      <div className='cardBioma'>
-
-      </div>
-      <p>Open up App.js to start working on your app!</p>
-    </div>
+    <Link to="/denuncia">Home</Link>
   );
 }
 export default HomeScreen;

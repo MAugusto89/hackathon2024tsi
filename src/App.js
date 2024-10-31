@@ -1,12 +1,12 @@
 import './App.css';
-import HomeScreen from '../src/components/HomeScreen/index.js';
-import Login from './components/Login/index.js';
-import HomeDenunciaScreen from './components/HomeDenunciaScreen/index.js';
+import routes from './router.js';
+import { useRoutes } from 'react-router-dom';
 
 function App() {
+  const elements = useRoutes(routes);
   return (
     <div className="App">
-      <HomeDenunciaScreen />
+      {elements}
     </div>
   );
 }
