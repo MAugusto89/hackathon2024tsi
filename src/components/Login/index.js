@@ -1,14 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { styles } from './style';
+// Login.js
+import React from 'react';
+import { auth, provider } from '../../firebaseConfig';
+import { signInWithPopup } from 'firebase/auth';
 
-export default function HomeScreen() {
+const Login = () => {
+  const handleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log('Usuário logado:', user);
+      // Aqui você pode redirecionar ou armazenar os dados do usuário
+    } catch (error) {
+      console.error('Erro no login:', error);
+    }
+  };
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <div>
+      <h2>Login com Google</h2>
+      <button onClick={handleLogin}>Login com Google</button>
+    </div>
   );
-}
+};
 
-
+export default Login;
